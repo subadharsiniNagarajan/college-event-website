@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        .registration-section {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .registration-section h1 {
+            text-align: center;
+            color: #123c69;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #123c69;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #2a6f97;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        #successMessage {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+        }
+
+        #successMessage h2 {
+            color: #2e7d32;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">College Events</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="registration.html">Registration</a></li>
+        </ul>
+    </nav>
+
+
+    <section class="registration-section">
+
+        <h1>Event Registration</h1>
+
+        <p>Register your interest in upcoming college events.</p>
+
+        <form id="registrationForm">
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name">
+                <div id="nameError" class="error"></div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email">
+                <div id="emailError" class="error"></div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone">
+                <div id="phoneError" class="error"></div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="event">Select Event</label>
+
+                <select id="event">
+
+                    <option value="">-- Select an Event --</option>
+
+                    <option value="Tech Symposium 2026">
+                        Tech Symposium 2026
+                    </option>
+
+                    <option value="Cultural Fest 2026">
+                        Cultural Fest 2026
+                    </option>
+
+                    <option value="Sports Meet 2026">
+                        Sports Meet 2026
+                    </option>
+
+                    <option value="AI & Robotics Workshop">
+                        AI & Robotics Workshop
+                    </option>
+
+                    <option value="Photography Exhibition">
+                        Photography Exhibition
+                    </option>
+
+                    <option value="Music Night 2026">
+                        Music Night 2026
+                    </option>
+
+                </select>
+
+                <div id="eventError" class="error"></div>
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="message">Message</label>
+
+                <textarea id="message" rows="4"></textarea>
+
+            </div>
+
+
+            <button type="submit" class="submit-btn">
+                Submit Registration
+            </button>
+
+        </form>
+
+
+        <!-- SUCCESS MESSAGE -->
+
+        <div id="successMessage">
+
+            <h2>✅ Registration Submitted Successfully!</h2>
+
+            <p>Thank you for registering for the event.</p>
+
+            <hr>
+
+            <h3>Registration Details</h3>
+
+            <p>
+                <strong>Name:</strong>
+                <span id="previewName"></span>
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <span id="previewEmail"></span>
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                <span id="previewPhone"></span>
+            </p>
+
+            <p>
+                <strong>Event:</strong>
+                <span id="previewEvent"></span>
+            </p>
+
+            <p>
+                <strong>Message:</strong>
+                <span id="previewMessage"></span>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        © 2026 College Events. All Rights Reserved.
+    </footer>
+
+
+    <script>
+
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+            let selectedEvent = document.getElementById("event").value;
+            let message = document.getElementById("message").value.trim();
+
+
+            // Clear errors
+
+            document.getElementById("nameError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("phoneError").innerHTML = "";
+            document.getElementById("eventError").innerHTML = "";
+
+
+            let valid = true;
+
+
+            // Name
+
+            if (name === "") {
+
+                document.getElementById("nameError").innerHTML =
+                    "Please enter your name.";
+
+                valid = false;
+            }
+
+
+            // Email
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "") {
+
+                document.getElementById("emailError").innerHTML =
+                    "Please enter your email.";
+
+                valid = false;
+
+            } else if (!emailPattern.test(email)) {
+
+                document.getElementById("emailError").innerHTML =
+                    "Please enter a valid email address.";
+
+                valid = false;
+            }
+
+
+            // Phone
+
+            if (!/^[0-9]{10}$/.test(phone)) {
+
+                document.getElementById("phoneError").innerHTML =
+                    "Phone number must contain 10 digits.";
+
+                valid = false;
+            }
+
+
+            // Event
+
+            if (selectedEvent === "") {
+
+                document.getElementById("eventError").innerHTML =
+                    "Please select an event.";
+
+                valid = false;
+            }
+
+
+            // Stop if invalid
+
+            if (!valid) {
+                return;
+            }
+
+
+            // Put values into preview
+
+            document.getElementById("previewName").innerHTML = name;
+
+            document.getElementById("previewEmail").innerHTML = email;
+
+            document.getElementById("previewPhone").innerHTML = phone;
+
+            document.getElementById("previewEvent").innerHTML = selectedEvent;
+
+            document.getElementById("previewMessage").innerHTML =
+                message === "" ? "No message provided." : message;
+
+
+            // SHOW SUCCESS MESSAGE
+
+            document.getElementById("successMessage").style.display = "block";
+
+
+            // Scroll to message
+
+            document.getElementById("successMessage").scrollIntoView({
+                behavior: "smooth"
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

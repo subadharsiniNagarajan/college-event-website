@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fb;
+    color: #222;
+}
+
+/* Navigation */
+
+.navbar {
+    background-color: #123c69;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hero */
+
+.hero {
+    background-color: #2a6f97;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 650px;
+    margin: 0 auto 30px;
+}
+
+/* Button */
+
+.btn {
+    display: inline-block;
+    background-color: white;
+    color: #123c69;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* Events */
+
+.upcoming {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.upcoming h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.event-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.event-card {
+    background-color: white;
+    width: 300px;
+    padding: 25px;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-card h3 {
+    color: #123c69;
+    margin-bottom: 15px;
+}
+
+.event-card p {
+    margin-bottom: 8px;
+}
+
+/* Footer */
+
+footer {
+    background-color: #123c69;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .event-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* ============================= */
+/* Registration Page */
+/* ============================= */
+
+.registration-section {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.registration-section h1 {
+    text-align: center;
+    color: #123c69;
+    margin-bottom: 10px;
+}
+
+.registration-section > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #123c69;
+}
+
+.form-group small {
+    display: block;
+    color: red;
+    margin-top: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 13px;
+    background-color: #123c69;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #2a6f97;
+}
+
+.success-message {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #e8f5e9;
+    border: 1px solid #4caf50;
+    border-radius: 8px;
+}
+
+.success-message h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+.success-message p {
+    margin-bottom: 8px;
+}
+
+/* Registration mobile view */
+
+@media (max-width: 768px) {
+
+    .registration-section {
+        margin: 30px 15px;
+        padding: 25px;
+    }
+
+}
+/* Favourite Button */
+
+.favorite-btn {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #123c69;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.favorite-btn:hover {
+    background-color: #2a6f97;
+}
+
+.favorite-btn.favorited {
+    background-color: #e67e22;
+}
+
+/* ==============================
+   SEARCH AND FILTER
+   ============================== */
+
+.filter-section {
+    max-width: 900px;
+    margin: 30px auto;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-section input,
+.filter-section select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.filter-section input {
+    width: 300px;
+}
+
+.filter-section select {
+    width: 200px;
+}
+
+#resetFilter {
+    padding: 12px 20px;
+    background-color: #123c69;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#resetFilter:hover {
+    background-color: #2a6f97;
+}
+
+#resultCount {
+    width: 100%;
+    margin-top: 5px;
+    color: #555;
+    font-size: 14px;
+}
+/* View Details Button */
+
+.view-details-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #2a6f97;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.view-details-btn:hover {
+    background-color: #123c69;
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event Details | College Events</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                College Events
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="registration.html">Registration</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- Event Details -->
+
+    <main>
+
+        <section class="registration-section">
+
+            <h1 id="eventTitle">Event Details</h1>
+
+            <p>
+                <strong>Event ID:</strong>
+                <span id="eventId"></span>
+            </p>
+
+            <p>
+                <strong>Category:</strong>
+                <span id="eventCategory"></span>
+            </p>
+
+            <p>
+                <strong>Date:</strong>
+                <span id="eventDate"></span>
+            </p>
+
+            <p>
+                <strong>Venue:</strong>
+                <span id="eventVenue"></span>
+            </p>
+
+            <p>
+                <strong>Description:</strong>
+                <span id="eventDescription"></span>
+            </p>
+
+            <br>
+
+            <a href="registration.html" class="submit-btn">
+                Register Interest
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+        <p>© 2026 College Events. All Rights Reserved.</p>
+    </footer>
+
+
+    <!-- Event Details JavaScript -->
+
+    <script>
+
+        const events = {
+
+            EVT001: {
+                title: "Tech Symposium 2026",
+                category: "Technology",
+                date: "15 October 2026",
+                venue: "Main Auditorium",
+                description: "A technology event featuring workshops and technical competitions."
+            },
+
+            EVT002: {
+                title: "Cultural Fest 2026",
+                category: "Cultural",
+                date: "18 October 2026",
+                venue: "College Ground",
+                description: "A celebration of music, dance, art and cultural performances."
+            },
+
+            EVT003: {
+                title: "Sports Meet 2026",
+                category: "Sports",
+                date: "22 October 2026",
+                venue: "Sports Ground",
+                description: "An inter-department sports competition for students."
+            },
+
+            EVT004: {
+                title: "AI & Robotics Workshop",
+                category: "Workshop",
+                date: "24 October 2026",
+                venue: "Innovation Lab",
+                description: "Learn the fundamentals of AI, robotics and automation."
+            },
+
+            EVT005: {
+                title: "Photography Exhibition",
+                category: "Art",
+                date: "27 October 2026",
+                venue: "Seminar Hall",
+                description: "Explore creative photographs captured by college students."
+            },
+
+            EVT006: {
+                title: "Music Night 2026",
+                category: "Entertainment",
+                date: "30 October 2026",
+                venue: "Open Air Theatre",
+                description: "Enjoy live music and performances by talented student artists."
+            }
+
+        };
+
+
+        // Get event ID from URL
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const eventId = urlParams.get("id");
+
+        const event = events[eventId];
+
+
+        // Display event details
+
+        if (event) {
+
+            document.getElementById("eventTitle").textContent =
+                event.title;
+
+            document.getElementById("eventId").textContent =
+                eventId;
+
+            document.getElementById("eventCategory").textContent =
+                event.category;
+
+            document.getElementById("eventDate").textContent =
+                event.date;
+
+            document.getElementById("eventVenue").textContent =
+                event.venue;
+
+            document.getElementById("eventDescription").textContent =
+                event.description;
+
+        } else {
+
+            document.getElementById("eventTitle").textContent =
+                "Event Not Found";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
